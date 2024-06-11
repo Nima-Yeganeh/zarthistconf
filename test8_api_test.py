@@ -1,7 +1,10 @@
 import openai
 
+# xcode = input("What is the code? ")
 question = input("What is your question? ")
-# openai.api_key = ""
+# print("Code: " + xcode + "")
+# openai.api_key = "sk-"+xcode+"joeRLSZjsL9bOXI2PT3BlbkFJEc4ys7pAJe7SL82uqxtE"
+openai.api_key = "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"
 
 def generate_content(topic):
     response = openai.ChatCompletion.create(
