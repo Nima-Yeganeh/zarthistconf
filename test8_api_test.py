@@ -4,7 +4,7 @@ import openai
 question = input("What is your question? ")
 # print("Code: " + xcode + "")
 # openai.api_key = "sk-"+xcode+"joeRLSZjsL9bOXI2PT3BlbkFJEc4ys7pAJe7SL82uqxtE"
-openai.api_key = "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"
+openai.api_key = ""
 
 def generate_content(topic):
     response = openai.ChatCompletion.create(
