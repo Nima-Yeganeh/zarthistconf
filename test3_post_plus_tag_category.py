@@ -2,9 +2,9 @@ import wordpress_xmlrpc
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.posts import NewPost
 
-url = 'http://domain.local/xmlrpc.php'
-username = 'admin'
-password = 'P@ssw0rd'
+url = 'http://arthist.ir/xmlrpc.php'
+username = 'newuser'
+password = 'newuser'
 client = Client(url, username, password)
 post = WordPressPost()
 post.title = 'Your post title 2'
@@ -20,3 +20,4 @@ post.terms_names = {
 post.post_status = 'publish'
 post_id = client.call(NewPost(post))
 print('New post created with ID:', post_id)
+
