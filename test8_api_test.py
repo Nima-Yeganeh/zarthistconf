@@ -5,8 +5,7 @@ import openai
 question = "Tell me about Art History"
 # print("Code: " + xcode + "")
 # openai.api_key = "sk-"+xcode+"joeRLSZjsL9bOXI2PT3BlbkFJEc4ys7pAJe7SL82uqxtE"
-openai.api_key = "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"
-openai.api_key = "sk-proj-bEy7fyvHoYSHadFgfHGOT3BlbkFJkQPDWGBXnauIGkm2wGgT"
+openai.api_key = "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"
 
 def generate_content(topic):
     response = openai.ChatCompletion.create(
