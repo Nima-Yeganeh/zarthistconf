@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Art of the Ancient Near East</title>
+  <title>The Art of the Ancient Near East / L'Art du Proche-Orient Ancien</title>
   <style>
     body {
       font-family: Tahoma, Arial, sans-serif;
@@ -14,10 +14,10 @@
   </style>
 </head>
 <body>
-  <h1>The Art of the Ancient Near East</h1>
-  <p>The art of the Ancient Near East, spanning from the early Bronze Age through the Achaemenid Empire's fall in 330 BCE, is a testament to the rich cultural tapestry and technological advancements of Mesopotamia, Persia, Anatolia, and the Levant. This period witnessed the creation of monumental architecture such as Sumerian ziggurats and the opulent palaces of Persepolis, adorned with intricate reliefs. Noteworthy are the Assyrian palace reliefs, characterized by their dynamic narrative depictions of royal conquests and divine encounters, and the elaborate Ishtar Gate of Babylon, with its glazed brick depictions of mythical creatures. The region's artistry also excelled in smaller-scale works, from the finely crafted cylinder seals of Mesopotamia to the exquisite Phoenician ivory carvings and innovative glasswork. Integral to this artistic tradition were the symbolic and religious motifs, manifesting a deep connection between art, spirituality, and governance. This era's contributions laid foundational elements for subsequent artistic and architectural developments, marking the Ancient Near East as a pivotal epoch in the annals of human civilization.</p>
+  <p>The art of the Ancient Near East, spanning from the early Bronze Age through the Achaemenid Empire's fall in 330 BCE, is a testament to the rich cultural tapestry and technological advancements of Mesopotamia, Persia, Anatolia, and the Levant.</p>
 
-  <h1 class="rtl">The Art of the Ancient Near East</h1>
-  <p class="rtl">هنر شرق نزدیک باستان، از آغاز عصر برنز اولیه تا سقوط امپراتوری هخامنشیان در سال ۳۳۰ پیش از میلاد، شاهکاری از الگوی فرهنگی غنی و پیشرفت‌های فناورانه مزرعه می‌کند که شامل مزرعه‌های میان‌رودانه، فارس، آناتولی و لبنان است. در این دوران معماری‌های بزرگی همچون زیگورات‌های سومری و قصرهای شاهانه پرسپولیس، که با نقوش پیچیده تزئین شده‌اند، ساخته شد. برجسته‌ترین آثار نقش قصرهای آشوری هستند که به داستان‌های حماسی از فتوحات سلطنتی و دیدارهای الهی معروف هستند، و دروازه ایشتار با نقاشی‌های خزفی از موجودات افسانه‌ای. هنر منطقه همچنین در آثار کوچک‌تر نیز موفق بود، از اسطوره‌های سیلندری دقیق مزرعه‌های میان‌رودانه تا حکاکی‌های عاج فنیقی و اثرات شیشه‌ای نوآورانه. نمادهای نمادین و مذهبی جزء اساسی این سنت هنری بودند و ارتباط عمیقی بین هنر، معنویت و حکومت را نشان می‌دادند. مشارکت‌های این دوره پایه‌های عناصری را برای توسعه‌های بعدی هنری و معماری فراهم کرد، که شرق باستان را به عنوان یک دوره مهم در سجلات تمدن انسانی مشخص می‌کند.</p>
+  <p>L'art du Proche-Orient ancien, s'étendant de l'âge du bronze ancien jusqu'à la chute de l'Empire achéménide en 330 avant J.-C., témoigne de la riche tapisserie culturelle et des avancées technologiques de la Mésopotamie, de la Perse, de l'Anatolie et du Levant.</p>
+
+  <p class="rtl">هنر شرق نزدیک باستان، از آغاز عصر برنز اولیه تا سقوط امپراتوری هخامنشیان در سال ۳۳۰ پیش از میلاد، شاهکاری از الگوی فرهنگی غنی و پیشرفت‌های فناورانه مزرعه می‌کند که شامل مزرعه‌های میان‌رودانه، فارس، آناتولی و لبنان است.</p>
 </body>
 </html>
