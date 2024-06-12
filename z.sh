@@ -1,2 +1,2 @@
-git pull
-python3 z.py
+sudo git pull
+python3 zv2.py

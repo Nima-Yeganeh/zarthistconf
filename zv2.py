@@ -9,7 +9,7 @@ pattern = r"<html[^>]*>(.*?)</html>"
 sections = re.findall(pattern, html_content, re.DOTALL)
 for i, section in enumerate(sections, start=1):
     formatted_section = f"<!DOCTYPE html>\n<html lang=\"en\">\n{section.strip()}\n</html>" 
-    print(f"Section {i} in file >>\n{formatted_section}\n")
+    # print(f"Section {i} in file >>\n{formatted_section}\n")
     url = 'http://arthist.ir/xmlrpc.php'
     username = 'newuser'
     password = 'newuser'
