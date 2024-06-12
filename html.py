@@ -15,3 +15,4 @@ for i, section in enumerate(sections, start=1):
     
     # Print section number and content
     print(f"Section {i} in file >>\n{formatted_section}\n")
+
