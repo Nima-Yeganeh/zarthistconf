@@ -17,7 +17,7 @@ with open('zxyz', 'r') as file:
 post.content = post_content
 
 title_pattern = r'<title>(.*?)<\/title>'
-match = re.search(title_pattern, file_content)
+match = re.search(title_pattern, post_content)
 post.title = match.group(1)
 
 tags = ['tag1', 'tag2', 'tag3']
