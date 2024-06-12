@@ -21,6 +21,11 @@ match = re.search(title_pattern, post_content)
 post.title = match.group(1)
 
 tags = ['tag1', 'tag2', 'tag3']
+keywords_pattern = r'<meta\s+name="keywords"\s+content="(.*?)"\s*\/?>'
+match = re.search(keywords_pattern, post_content)
+keywords = match.group(1)
+tags = [tag.strip() for tag in keywords.split(',')]
+
 post.terms_names = {
     'post_tag': tags,
     'category': ['category_name']
@@ -30,4 +35,3 @@ post.post_status = 'publish'
 
 post_id = client.call(NewPost(post))
 print('New post created with ID:', post_id)
-
