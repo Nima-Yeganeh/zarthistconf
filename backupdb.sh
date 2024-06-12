@@ -3,4 +3,6 @@ sudo docker exec -t $(sudo docker ps -a | grep 'mysql:5.7' | awk '{print $1}') m
 sudo mv -f /home/adrian/zarthistweb/zwordpressdb.zip /home/adrian/zarthistweb/zwordpressdb
 cd /home/adrian/zarthistweb/
 sudo bash gitupdate.sh
+cd /home/adrian/zarthistconf/
+sudo bash gitupdate.sh
 
