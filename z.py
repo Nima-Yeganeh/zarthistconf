@@ -28,10 +28,11 @@ tags = [tag.strip() for tag in keywords.split(',')]
 
 post.terms_names = {
     'post_tag': tags,
-    'category': ['category_name']
+    'category': ['ARTHIST']
 }
 
 post.post_status = 'publish'
 
 post_id = client.call(NewPost(post))
 print('New post created with ID:', post_id)
+
