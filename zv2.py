@@ -16,6 +16,7 @@ for i, section in enumerate(sections, start=1):
     client = Client(url, username, password)
     post = WordPressPost()
     post.content = formatted_section
+    post_content = formatted_section
     title_pattern = r'<title>(.*?)<\/title>'
     match = re.search(title_pattern, post_content)
     post.title = match.group(1)
