@@ -43,7 +43,7 @@ services:
         define('WP_CACHE', true);
       REDIS_HOST: redis
     volumes:
-      - /home/adrian/zarthistweb/:/var/www/html/
+      - /root/zarthistweb/:/var/www/html/
 
   nginx:
     image: nginx:latest
@@ -57,3 +57,5 @@ services:
 volumes:
   db_data:
   redis_data:
+
+
