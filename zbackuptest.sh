@@ -23,4 +23,5 @@ zip "$ZIP_FILE" "$SQL_DUMP_FILE"
 mv -f "$ZIP_FILE" "$BACKFILE"
 rm -f "$SQL_DUMP_FILE"
 echo "Backup completed: $ZIP_FILE"
+bash gitupdate.sh
 
