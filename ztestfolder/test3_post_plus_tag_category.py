@@ -28,7 +28,7 @@ with open(mp3_file_path, 'rb') as mp3_file:
 # Get the URL of the uploaded MP3 file
 mp3_url = response['url']
 # Step 2: Embed the MP3 file URL in the post content
-audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg">Your browser does not support the audio element.</audio>'
+audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg"></audio>'
 post_content += f'\n\n{audio_html}'
 post_content += f'\n'
 post_content += f'\n'

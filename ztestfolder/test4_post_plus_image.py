@@ -90,16 +90,16 @@ tags = []
 with open(zwptags, 'r') as file:
     for line in file:
         tags.append(line.strip())
-tags = ['tag1', 'tag2', 'tag3']
+# tags = ['tag1', 'tag2', 'tag3']
 post.terms_names = {
     'post_tag': tags
 }
 print(tags)
 
-category = ['Test Category 3']
-post.terms_names = {
-    'category': category
-}
+# category = ['Test Category 3']
+# post.terms_names = {
+#     'category': category
+# }
 
 image_path = zimgfile
 with open(image_path, 'rb') as img:
