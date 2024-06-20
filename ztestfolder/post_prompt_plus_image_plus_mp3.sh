@@ -16,9 +16,9 @@ while IFS= read -r line; do
     convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
     rm -f "$filename"
     mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
-    mp3file="${newfilename}.mp3"
+    mp3file="${mp3file}.mp3"
     python3 ztr2.py "txtfile" "$mp3file" "en"
-    python3 test4_post_plus_image.py "$input" "$newfilename" "zz.mp3" "zprompt.txt"
+    python3 test4_post_plus_image.py "$input" "$newfilename" "$mp3file" "zprompt.txt"
     rm -f $newfilename 
 done <<< "$file_list"
 
