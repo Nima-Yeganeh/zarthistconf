@@ -31,6 +31,7 @@ mp3_url = response['url']
 audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg">Your browser does not support the audio element.</audio>'
 post_content += f'\n\n{audio_html}'
 post_content += f'\n'
+post_content += f'\n'
 post.content += post_content
 
 # post.content = 'Your post description'
