@@ -36,7 +36,7 @@ echo "Wordpress Tags..."
 
 python3 -m pytgpt generate "Give me list of wordpress keyword tags for this article in bullet point in french and english" > zwptagstempfile
 cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
-rm -f zwptagstempfile
+# rm -f zwptagstempfile
 
 # sleep 1000
 
@@ -79,7 +79,8 @@ done <<< "$file_list"
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
-rm -f zwptags
+# rm -f zwptagstempfile
+# rm -f zwptags
 
 echo "Done!"
 
