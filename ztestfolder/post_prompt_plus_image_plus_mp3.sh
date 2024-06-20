@@ -3,13 +3,23 @@ read -p "Enter your input: " input
 
 python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
 
-ztitlefr=$(python3 -m pytgpt generate "translate to french: $input")
-ztitle="$ztitlefr | $input"
+sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
+cat zprompt.txt | sed 's/- //g' > zprompt2.txt
+cat zprompt2.txt > zprompt.txt
+rm -f zprompt2.txt
+mv -f zprompt.txt zprompt_info_en
+
+python3 -m pytgpt generate "translate to french" > zprompt.txt
 
 sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
 cat zprompt.txt | sed 's/- //g' > zprompt2.txt
 cat zprompt2.txt > zprompt.txt
 rm -f zprompt2.txt
+mv -f zprompt.txt zprompt_info_fr
+
+
+ztitlefr=$(python3 -m pytgpt generate "translate to french: $input")
+ztitle="$ztitlefr | $input"
 
 python3 test2.py "$input"
 
@@ -25,9 +35,11 @@ while IFS= read -r line; do
     rm -f "$filename"
     mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
     mp3file="${mp3file}.mp3"
-    python3 ztr2.py "zprompt.txt" "$mp3file" "fr"
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt.txt"
+    python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr"
     rm -f $newfilename
     rm -f $mp3file
 done <<< "$file_list"
 
+rm -f zprompt_info_en
+rm -f zprompt_info_fr
