@@ -13,6 +13,7 @@ zmp3file = sys.argv[3]
 ztxtfile = sys.argv[4]
 zmp3file2 = sys.argv[5]
 ztxtfile2 = sys.argv[6]
+zwptags = sys.argv[7]
 
 url = 'http://arthist.ir/xmlrpc.php'
 username = 'adrian'
@@ -84,10 +85,19 @@ post.content += post_content
 post_content += f'\n'
 post_content += f'\n'
 
+#WP_TAGS
 tags = ['tag1', 'tag2', 'tag3']
 post.terms_names = {
     'post_tag': tags
 }
+tags = []
+with open(zwptags, 'r') as file:
+    for line in file:
+        tags.append(line.strip())
+post.terms_names = {
+    'post_tag': tags
+}
+print(tags)
 
 category = ['Test Category 3']
 post.terms_names = {
