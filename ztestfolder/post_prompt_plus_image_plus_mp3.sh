@@ -28,11 +28,17 @@ echo "Check Title..."
 ztitle_fr=$(python3 -m pytgpt generate "Give me a title for this article in french")
 ztitle_en=$(python3 -m pytgpt generate "Translate this title to english")
 ztitle="$ztitle_fr | $ztitle_en"
-
-echo $ztitle_en
-echo $ztitle_fr
+# echo $ztitle_en
+# echo $ztitle_fr
 echo $ztitle
-#sleep 5000
+
+echo "Wordpress Tags..."
+
+python3 -m pytgpt generate "Give me list of wordpress keyword tags for this article in bullet point in french and english" > zwptagstempfile
+cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
+# rm -f zwptagstempfile
+
+sleep 1000
 
 echo "Downloading Image..."
 
@@ -73,6 +79,8 @@ done <<< "$file_list"
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
+rm -f zwptags
 
 echo "Done!"
+
 
