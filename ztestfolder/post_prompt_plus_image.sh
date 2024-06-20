@@ -1,5 +1,9 @@
 read -p "Enter your input: " input
 python3 -m pytgpt generate "$input" > zprompt.txt
+sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
+cat zprompt.txt | sed 's/- //g' > zprompt2.txt
+cat zprompt2.txt > zprompt.txt
+rm -f zprompt2.txt
 python3 test2.py "$input"
 file_list=$(ls -anp | grep "$input" | grep jpeg)
 while IFS= read -r line; do
