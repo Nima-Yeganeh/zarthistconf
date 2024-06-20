@@ -13,6 +13,7 @@ post = WordPressPost()
 words = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grape', 'Cherry', 'Strawberry', 'Blueberry', 'Watermelon']
 random_title = ' '.join(random.sample(words, k=random.randint(2, 4)))  # Join 2 to 4 random words
 post.title = random_title
+post.content = ""
 
 post_content = ""
 mp3_file_path = 'zz.mp3'
