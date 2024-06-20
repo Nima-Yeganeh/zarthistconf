@@ -4,55 +4,59 @@ from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.media import UploadFile
 from wordpress_xmlrpc.methods.posts import NewPost
 from wordpress_xmlrpc.compat import xmlrpc_client
+import sys
 
-# Define the WordPress credentials
+if len(sys.argv) != 3:
+    print("Usage: python script.py <title> <filename>")
+    return
+title = sys.argv[1]
+filename = sys.argv[2]
+# print(f'Title: {title}')
+# print(f'Filename: {filename}')
+
 url = 'http://arthist.ir/xmlrpc.php'
 username = 'adrian'
 password = 'P@ssw0rd'
-
-# Connect to the WordPress client
 client = Client(url, username, password)
-
-# Create a new post
 post = WordPressPost()
-
-# Set the post content
-post.title = 'Your post title 3'
+post.title = title
 post.content = 'Your post description'
 
-# Set the post tags
+words = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grape', 'Cherry', 'Strawberry', 'Blueberry', 'Watermelon']
+random_title = ' '.join(random.sample(words, k=random.randint(2, 4)))  # Join 2 to 4 random words
+post.title = random_title
+
+post.content = 'Your post description'
+file_path = 'zprompt.txt'
+post_content = ''
+try:
+    with open(file_path, 'r') as file:
+        post_content = file.read()
+        # Optionally, you can strip any extra whitespace including newlines
+        post_content = post_content.strip()
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+post.content = post_content
+
 tags = ['tag1', 'tag2', 'tag3']
 post.terms_names = {
     'post_tag': tags
 }
 
-# Set the post category
 category = ['Test Category 3']
 post.terms_names = {
     'category': category
 }
 
-# Upload the image file
-image_path = 'file1.jpg'
-
+image_path = filename
 with open(image_path, 'rb') as img:
     data = img.read()
 filename = os.path.basename(image_path)
 file = {'name': filename, 'type': 'image/jpeg', 'bits': xmlrpc_client.Binary(data)}
 response = client.call(UploadFile(file))
 
-# Set the image as the featured image of the post
 post.thumbnail = response['id']
-
-# Publish the post
 post.post_status = 'publish'
-
-# Create the new post on WordPress
 post_id = client.call(NewPost(post))
-
-# Print the post ID
 print('New post created with ID:', post_id)
-
-# In this updated version, we've added the ability to upload an image file to the WordPress site using the UploadFile method. We open the image file using a with statement, read the binary data, and then use the os.path.basename function to get the filename. We then call the UploadFile method with the filename and data, and store the response. Finally, we set the thumbnail property of the post to the ID of the uploaded image, and create the post as before.
-
 
