@@ -1,8 +1,10 @@
 
+
 read -p "Enter your input: " input
 
 echo "Info in English..."
 
+echo "" > zprompt.txt
 python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
 
 sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
@@ -13,6 +15,7 @@ mv -f zprompt.txt zprompt_info_en
 
 echo "Translation to French..."
 
+echo "" > zprompt.txt
 python3 -m pytgpt generate "translate to french" > zprompt.txt
 
 sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
@@ -23,10 +26,15 @@ mv -f zprompt.txt zprompt_info_fr
 
 echo "Check Title..."
 
-ztitlefr=$(python3 -m pytgpt generate "translate to french: $input")
-ztitle="$ztitlefr | $input"
+ztitle_fr=$(python3 -m pytgpt generate "Give me a title for this article in french")
+ztitle_en=$(python3 -m pytgpt generate "Translate this title to english")
+ztitle="$ztitle_fr | $ztitle_en"
 
-echo "Title >> $ztitle"
+echo $ztitle_en
+echo $ztitle_fr
+echo $ztitle
+#sleep 5000
+
 
 echo "Downloading Image..."
 
