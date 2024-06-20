@@ -1,6 +1,8 @@
 
 read -p "Enter your input: " input
 
+echo "Info in English..."
+
 python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
 
 sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
@@ -8,6 +10,8 @@ cat zprompt.txt | sed 's/- //g' > zprompt2.txt
 cat zprompt2.txt > zprompt.txt
 rm -f zprompt2.txt
 mv -f zprompt.txt zprompt_info_en
+
+echo "Translation to French..."
 
 python3 -m pytgpt generate "translate to french" > zprompt.txt
 
@@ -17,11 +21,18 @@ cat zprompt2.txt > zprompt.txt
 rm -f zprompt2.txt
 mv -f zprompt.txt zprompt_info_fr
 
+echo "Check Title..."
 
 ztitlefr=$(python3 -m pytgpt generate "translate to french: $input")
 ztitle="$ztitlefr | $input"
 
+echo "Title >> $ztitle"
+
+echo "Downloading Image..."
+
 python3 test2.py "$input"
+
+echo "Checking JPG Files..."
 
 file_list=$(ls -anp | grep "$input" | grep jpeg)
 while IFS= read -r line; do
@@ -33,9 +44,15 @@ while IFS= read -r line; do
     echo "$filename"
     convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
     rm -f "$filename"
+
+    echo "MP3 in French..."
+
     mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
     mp3file="${mp3file}.mp3"
     python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
+
+    echo "Wordpress Post..."
+
     python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr"
     rm -f $newfilename
     rm -f $mp3file
@@ -43,3 +60,7 @@ done <<< "$file_list"
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
+
+echo "Done!"
+
+
