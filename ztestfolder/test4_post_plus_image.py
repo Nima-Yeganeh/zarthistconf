@@ -96,10 +96,10 @@ post.terms_names = {
 }
 print(tags)
 
-# category = ['Test Category 3']
-# post.terms_names = {
-#     'category': category
-# }
+category = ['ARTHIST']
+post.terms_names += {
+    'category': category
+}
 
 image_path = zimgfile
 with open(image_path, 'rb') as img:
