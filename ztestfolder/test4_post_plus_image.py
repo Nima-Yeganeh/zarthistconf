@@ -1,4 +1,5 @@
 import os
+import random
 import wordpress_xmlrpc
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.media import UploadFile
@@ -8,7 +9,6 @@ import sys
 
 if len(sys.argv) != 3:
     print("Usage: python script.py <title> <filename>")
-    return
 title = sys.argv[1]
 filename = sys.argv[2]
 # print(f'Title: {title}')
@@ -24,7 +24,7 @@ post.content = 'Your post description'
 
 words = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grape', 'Cherry', 'Strawberry', 'Blueberry', 'Watermelon']
 random_title = ' '.join(random.sample(words, k=random.randint(2, 4)))  # Join 2 to 4 random words
-post.title = random_title
+# post.title = random_title
 
 post.content = 'Your post description'
 file_path = 'zprompt.txt'
