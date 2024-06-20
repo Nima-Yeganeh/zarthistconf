@@ -16,6 +16,25 @@ random_title = ' '.join(random.sample(words, k=random.randint(2, 4)))  # Join 2 
 # print("Random Post Title:", random_title)
 post.title = random_title
 post.content = 'Your post description'
+
+# Assuming zprompt.txt is in the same directory as your Python script
+file_path = 'zprompt.txt'
+
+# Initialize an empty string to store the file content
+post_content = ''
+
+# Open the file and read its content
+try:
+    with open(file_path, 'r') as file:
+        post_content = file.read()
+        # Optionally, you can strip any extra whitespace including newlines
+        post_content = post_content.strip()
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+
+# Assign the read content to the post content variable
+post.content = post_content
+
 tags = ['tag1', 'tag2', 'tag3']
 post.terms_names = {
     'post_tag': tags
