@@ -7,5 +7,5 @@ sudo pip install --upgrade python-tgpt
 # pip install  --upgrade "python-tgpt[all]"
 # sudo apt-get update -y
 # sudo apt-get install ffmpeg -y
-
-
+# sudo apt install python python3-pip -y
+sudo pip install gtts
