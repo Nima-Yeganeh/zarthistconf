@@ -19,6 +19,6 @@ while IFS= read -r line; do
     mp3file="${mp3file}.mp3"
     python3 ztr2.py "txtfile" "$mp3file" "en"
     python3 test4_post_plus_image.py "$input" "$newfilename" "$mp3file" "zprompt.txt"
-    rm -f $newfilename 
+    rm -f $newfilename
+    rm -f $mp3file
 done <<< "$file_list"
-
