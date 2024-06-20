@@ -14,18 +14,7 @@ words = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grape', 'Cherry', '
 random_title = ' '.join(random.sample(words, k=random.randint(2, 4)))  # Join 2 to 4 random words
 post.title = random_title
 
-post.content = 'Your post description'
-file_path = 'zprompt.txt'
-post_content = ''
-try:
-    with open(file_path, 'r') as file:
-        post_content = file.read()
-        # Optionally, you can strip any extra whitespace including newlines
-        post_content = post_content.strip()
-except FileNotFoundError:
-    print(f"Error: File '{file_path}' not found.")
-post.content = post_content
-
+post_content = ""
 mp3_file_path = 'zz.mp3'
 # Step 1: Upload the MP3 file to the media library
 with open(mp3_file_path, 'rb') as mp3_file:
@@ -40,7 +29,19 @@ mp3_url = response['url']
 # Step 2: Embed the MP3 file URL in the post content
 audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg">Your browser does not support the audio element.</audio>'
 post_content += f'\n\n{audio_html}'
-post.content = post_content
+post.content += post_content
+
+# post.content = 'Your post description'
+file_path = 'zprompt.txt'
+# post_content = ''
+try:
+    with open(file_path, 'r') as file:
+        post_content = file.read()
+        # Optionally, you can strip any extra whitespace including newlines
+        post_content = post_content.strip()
+except FileNotFoundError:
+    print(f"Error: File '{file_path}' not found.")
+post.content += post_content
 
 tags = ['tag1', 'tag2', 'tag3']
 post.terms_names = {
