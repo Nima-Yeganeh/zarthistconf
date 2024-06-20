@@ -1,5 +1,4 @@
 
-
 read -p "Enter your input: " input
 
 echo "Info in English..."
@@ -35,10 +34,9 @@ echo $ztitle_fr
 echo $ztitle
 #sleep 5000
 
-
 echo "Downloading Image..."
 
-python3 test2.py "$input"
+python3 imagedl.py "$input"
 
 echo "Checking JPG Files..."
 
