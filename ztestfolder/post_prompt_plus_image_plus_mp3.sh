@@ -1,7 +1,7 @@
 
 read -p "Enter your input: " input
 
-python3 -m pytgpt generate "give me in french about $input" > zprompt.txt
+python3 -m pytgpt generate "give me in french translation information about $input" > zprompt.txt
 
 ztitlefr=$(python3 -m pytgpt generate "translate to french: $input")
 ztitle="$ztitlefr | $input"
