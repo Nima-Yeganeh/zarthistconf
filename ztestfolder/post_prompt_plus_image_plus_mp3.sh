@@ -51,16 +51,22 @@ while IFS= read -r line; do
     mp3file="${mp3file}.mp3"
     python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
 
+    echo "MP3 in English..."
+
+    mp3file2=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
+    mp3file2="${mp3file2}.mp3"
+    python3 ztr2.py "zprompt_info_en" "$mp3file2" "en"
+
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en"
     rm -f $newfilename
     rm -f $mp3file
+    rm -f $mp3file2
 done <<< "$file_list"
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
 
 echo "Done!"
-
 
