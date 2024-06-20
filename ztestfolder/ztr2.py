@@ -24,5 +24,5 @@ except Exception as e:
 # text = ""
 output_file = mp3filename
 lang = langtype
-tts = gTTS(text, lang=lang, slow=True)
+tts = gTTS(text, lang=lang, slow=False)
 tts.save(output_file)
