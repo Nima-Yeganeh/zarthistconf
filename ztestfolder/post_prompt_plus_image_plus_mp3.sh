@@ -38,7 +38,7 @@ python3 -m pytgpt generate "Give me list of wordpress keyword tags for this arti
 cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 rm -f zwptagstempfile
 
-sleep 1000
+# sleep 1000
 
 echo "Downloading Image..."
 
