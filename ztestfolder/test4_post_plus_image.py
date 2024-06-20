@@ -18,7 +18,7 @@ password = 'P@ssw0rd'
 client = Client(url, username, password)
 post = WordPressPost()
 post.title = title
-post.content = 'Your post description'
+post.content = ""
 
 post_content = ""
 mp3_file_path = zmp3file
