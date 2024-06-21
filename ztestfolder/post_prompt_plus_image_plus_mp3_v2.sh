@@ -103,6 +103,8 @@ for ztopic in "${inputs[@]}"; do
     # generate_and_post "$ztopic" "in english tell me about $ztopic" "Histoire de l'art | History of Art"
     # generate_and_post "$ztopic" "in english give me a basic elementary conversation about $ztopic" "Conversations de base en français | Basic French Conversations"
     # generate_and_post "$ztopic" "in english give me Museums Collections and Art Galleries about $ztopic" "Collections de musées et galeries d'art | Museum Collections and Art Galleries"
-    generate_and_post "$ztopic" "in english give me Books and eBooks and Articles about $ztopic" "Livres et Publications | Books and Publications"
+    # generate_and_post "$ztopic" "in english give me Books and eBooks and Articles about $ztopic" "Livres et Publications | Books and Publications"
+    generate_and_post "$ztopic" "in english give me Musics and Songs about $ztopic" "Musique et Chansons | Music and Songs"
+    
 done
 
