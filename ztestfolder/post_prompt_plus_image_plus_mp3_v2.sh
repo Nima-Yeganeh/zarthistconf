@@ -1,7 +1,7 @@
 
 # Get the search text from the command line argument
 search_text="$1"
-input=$search_text
+input="$search_text"
 
 echo "Info in English..."
 
@@ -64,36 +64,36 @@ python3 imagedl.py "$input"
 
 echo "Checking JPG Files..."
 
-file_list=$(ls -anp | grep "$input" | grep jpeg)
-while IFS= read -r line; do
-    filename=$(echo "$line" | awk '{for (i=9; i<=NF; i++) printf $i " "; print ""}' | sed 's/ *$//')
-    newfilename=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
-    extension=".jpg"
-    newfilename="${newfilename}${extension}"
-    echo "New filename: $newfilename"
-    echo "$filename"
-    convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
-    rm -f "$filename"
+file_list=$(ls -anp | grep "$input" | grep jpeg | head -n1)
 
-    echo "MP3 in French..."
+filename=$(echo "$file_list" | awk '{for (i=9; i<=NF; i++) printf $i " "; print ""}' | sed 's/ *$//')
+newfilename=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
+extension=".jpg"
+newfilename="${newfilename}${extension}"
+echo "New filename: $newfilename"
+echo "$filename"
+convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
+rm -f "$filename"
 
-    mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
-    mp3file="${mp3file}.mp3"
-    python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
+echo "MP3 in French..."
 
-    echo "MP3 in English..."
+mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
+mp3file="${mp3file}.mp3"
+python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
 
-    mp3file2=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
-    mp3file2="${mp3file2}.mp3"
-    python3 ztr2.py "zprompt_info_en" "$mp3file2" "en"
+echo "MP3 in English..."
 
-    echo "Wordpress Post..."
+mp3file2=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
+mp3file2="${mp3file2}.mp3"
+python3 ztr2.py "zprompt_info_en" "$mp3file2" "en"
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile"
-    rm -f $newfilename
-    rm -f $mp3file
-    rm -f $mp3file2
-done <<< "$file_list"
+echo "Wordpress Post..."
+
+python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile"
+rm -f $newfilename
+rm -f $mp3file
+rm -f $mp3file2
+
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
