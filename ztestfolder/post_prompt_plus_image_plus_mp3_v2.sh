@@ -4,16 +4,14 @@ inputs=()
 while IFS= read -r line; do
     inputs+=("$line")
 done < zztopics.txt
+# echo $inputs
 
 # Loop through the array and run the command for each input
 for input in "${inputs[@]}"; do
     echo "********************"
     echo "Processed input: $input"
     echo "Generating..."
-    echo $linetext
-    python3 ztest.py
-    
-    input=$linetext
+    # python3 ztest.py
 
     echo "Info in English..."
 
