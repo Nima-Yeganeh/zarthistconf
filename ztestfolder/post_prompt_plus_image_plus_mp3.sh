@@ -6,7 +6,7 @@ echo "Info in English..."
 echo "" > zprompt.txt
 python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
 
-sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
+sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' -e 's/#//g' zprompt.txt
 cat zprompt.txt | sed 's/- //g' > zprompt2.txt
 cat zprompt2.txt > zprompt.txt
 rm -f zprompt2.txt
@@ -17,7 +17,7 @@ echo "Translation to French..."
 echo "" > zprompt.txt
 python3 -m pytgpt generate "translate to french" > zprompt.txt
 
-sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' zprompt.txt
+sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' -e 's/#//g' zprompt.txt
 cat zprompt.txt | sed 's/- //g' > zprompt2.txt
 cat zprompt2.txt > zprompt.txt
 rm -f zprompt2.txt
