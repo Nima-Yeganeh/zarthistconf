@@ -100,7 +100,8 @@ generate_and_post() {
 }
 
 for ztopic in "${inputs[@]}"; do
-    generate_and_post "$ztopic" "in english tell me about $ztopic" "Histoire de l'art | History of Art"
-    generate_and_post "$ztopic" "in english give me a basic elementary conversation about $ztopic" "Conversations de base en français | Basic French Conversations"
+    # generate_and_post "$ztopic" "in english tell me about $ztopic" "Histoire de l'art | History of Art"
+    # generate_and_post "$ztopic" "in english give me a basic elementary conversation about $ztopic" "Conversations de base en français | Basic French Conversations"
+    generate_and_post "$ztopic" "in english give me Museums Collections and Art Galleries about $ztopic" "Collections de musées et galeries d'art | Museum Collections and Art Galleries"
 done
 
