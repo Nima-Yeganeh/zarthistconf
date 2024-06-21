@@ -23,7 +23,6 @@ client = Client(url, username, password)
 post = WordPressPost()
 post.title = title
 post.content = ""
-
 post_content = ""
 
 # French MP3
@@ -37,10 +36,10 @@ with open(mp3_file_path, 'rb') as mp3_file:
     response = client.call(UploadFile(data))
 mp3_url = response['url']
 audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg"></audio>'
-post_content += f'\n\n{audio_html}'
-post_content += f'\n'
-post_content += f'\n'
-post.content += post_content
+post.content += f'\n\n{audio_html}'
+post.content += f'\n'
+post.content += f'\n'
+# post.content += post_content
 
 #French Text
 file_path = ztxtfile
@@ -51,12 +50,12 @@ try:
 except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 post.content += post_content
-post_content += f'\n'
-post_content += f'\n'
+post.content += f'\n'
+post.content += f'\n'
 
 #English Section
-post_content += "Translation and Audio File in English:"
-post_content += f'\n'
+post.content += "Translation and Audio File in English:"
+post.content += f'\n'
 
 #English MP3
 mp3_file_path = zmp3file2
@@ -69,10 +68,10 @@ with open(mp3_file_path, 'rb') as mp3_file:
     response = client.call(UploadFile(data))
 mp3_url = response['url']
 audio_html = f'<audio controls><source src="{mp3_url}" type="audio/mpeg"></audio>'
-post_content += f'\n\n{audio_html}'
-post_content += f'\n'
-post_content += f'\n'
-post.content += post_content
+post.content += f'\n\n{audio_html}'
+post.content += f'\n'
+post.content += f'\n'
+# post.content += post_content
 
 #English Text
 file_path = ztxtfile2
@@ -83,8 +82,8 @@ try:
 except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 post.content += post_content
-post_content += f'\n'
-post_content += f'\n\n'
+post.content += f'\n'
+post.content += f'\n'
 
 # HTML file path
 html_file_path = htmlfile
@@ -94,7 +93,9 @@ try:
 except FileNotFoundError:
     print(f"Error: File '{html_file_path}' not found.")
 else:
-    post_content += f'\n\n{html_content}\n\n'
+    post.content += f'\n\n{html_content}\n\n'
+post.content += f'\n'
+post.content += f'\n'
 
 
 #WP_TAGS
