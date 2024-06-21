@@ -1,15 +1,20 @@
 #!/bin/bash
+# Read the file and store each line in an array
 inputs=()
 while IFS= read -r line; do
     inputs+=("$line")
 done < zztopics.txt
+# echo $inputs
 
-generate_and_post() {
-    input=$1
+# Loop through the array and run the command for each input
+for input in "${inputs[@]}"; do
     echo "********************"
     echo "Processed input: $input"
     echo "Generating..."
+    # python3 ztest.py
+
     echo "Info in English..."
+
     echo "" > zprompt.txt
     python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
     # python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt 2>/dev/null || true
@@ -110,9 +115,5 @@ generate_and_post() {
 
     echo "Done!"
     echo "Next..."
-}
-
-for ztopic in "${inputs[@]}"; do
-    generate_and_post "$ztopic"
 done
 
