@@ -177,3 +177,33 @@ footer {
 .widget-area {
     font-size: 120%;
 }
+
+.post-navigation {
+    display: none;
+}
+
+/* Target image links and change their color to white */
+a img {
+    display: block;
+}
+
+a img + * {
+    display: none;
+}
+
+a:focus {
+    color: white;
+}
+
+/* Hide text behind image links */
+a img {
+    display: block;
+}
+
+a img + span,
+a img + strong,
+a img + em,
+a img + p {
+    display: none;
+}
+
