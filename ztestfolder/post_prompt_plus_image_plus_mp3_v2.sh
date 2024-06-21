@@ -8,8 +8,9 @@ generate_and_post() {
     input=$1
     input2=$2
     input3=$3
+    zcat=$input3
     echo "********************"
-    echo "Processed input: $input"
+    echo "Processed input: $input | $zcat"
     echo "Generating..."
     # 1
     echo "Info in English..."
@@ -81,7 +82,6 @@ generate_and_post() {
     python3 ztr2.py "zprompt_info_en" "$mp3file2" "en"
     # 9
     echo "Wordpress Post..."
-    zcat=$input3
     python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile" "$zcat"
     rm -f $newfilename
     rm -f $mp3file
@@ -99,5 +99,6 @@ generate_and_post() {
 
 for ztopic in "${inputs[@]}"; do
     generate_and_post "$ztopic" "in english tell me about $ztopic" "Histoire de l'art | History of Art"
+    generate_and_post "$ztopic" "in english give me a basic elementary conversation about $ztopic" "Conversations de base en français | Basic French Conversations"
 done
 
