@@ -3,7 +3,7 @@
 # Function to encode text for URL
 urlencode() {
   # Use Python 3 to URL encode the input
-  python3 -c "import urllib.parse; print(urllib.parse.quote('$1'))"
+  python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1]))" "$1"
 }
 
 # Function to format text into Google image search URL
@@ -13,11 +13,16 @@ format_google_image_url() {
 }
 
 # Main script starts here
-# Prompt user for input
-read -p "Enter text to search images for: " search_text
+# Check if a command line argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <search text>"
+  exit 1
+fi
+
+# Get the search text from the command line argument
+search_text="$1"
 
 # Format the text into Google image search URL
 google_image_url=$(format_google_image_url "$search_text")
 
 echo "$google_image_url"
-
