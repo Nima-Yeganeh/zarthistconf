@@ -19,7 +19,8 @@ generate_and_post() {
     # python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt
     # python3 -m pytgpt generate "in english tell me about $input" > zprompt.txt 2>/dev/null || true
     sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' -e 's/#//g' zprompt.txt
-    cat zprompt.txt | sed 's/- //g' > zprompt2.txt
+    cat zprompt.txt | sed 's/- //g' | sed 's/---//g' > zprompt2.txt
+    # cat zprompt.txt | sed 's/- //g' > zprompt2.txt
     cat zprompt2.txt > zprompt.txt
     rm -f zprompt2.txt
     mv -f zprompt.txt zprompt_info_en
@@ -28,7 +29,8 @@ generate_and_post() {
     echo "" > zprompt.txt
     python3 -m pytgpt generate "translate to french" > zprompt.txt
     sed -i -e 's/### //g' -e 's/– \*\*//g' -e 's/\*\*//g' -e 's/#//g' zprompt.txt
-    cat zprompt.txt | sed 's/- //g' > zprompt2.txt
+    cat zprompt.txt | sed 's/- //g' | sed 's/---//g' > zprompt2.txt
+    # cat zprompt.txt | sed 's/- //g' > zprompt2.txt
     cat zprompt2.txt > zprompt.txt
     rm -f zprompt2.txt
     mv -f zprompt.txt zprompt_info_fr
