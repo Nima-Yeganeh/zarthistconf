@@ -1,0 +1,179 @@
+
+/* Apply smaller font sizes only on desktop devices (screens wider than 768px) */
+@media (min-width: 769px) {
+	/* Adjust feature image size and center them */
+.wp-post-image, 
+.featured-image img {
+    width: 50%; /* Scale down feature image width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure responsiveness */
+    display: block; /* Make the image a block element */
+    margin-left: auto; /* Center the image */
+    margin-right: auto; /* Center the image */
+}
+}
+
+/* Adjust the body font size */
+body {
+    font-size: 14px; /* Adjust the size as needed */
+}
+
+/* Adjust headings */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 80%; /* Scale down heading sizes */
+}
+
+/* Adjust paragraph font size */
+p {
+    font-size: 90%; /* Scale down paragraph font size */
+}
+
+/* Adjust the size of list items */
+ul, ol {
+    font-size: 90%; /* Scale down list font size */
+}
+
+/* Adjust the size of the menu items */
+.nav-menu a {
+    font-size: 90%; /* Scale down menu font size */
+}
+
+/* Adjust padding and margin for a more compact layout */
+body, p, ul, ol, h1, h2, h3, h4, h5, h6, .nav-menu a {
+    padding: 0.5em; /* Reduce padding */
+    margin: 0.5em 0; /* Reduce margins */
+}
+
+/* Adjust button size */
+button, input[type="submit"] {
+    font-size: 90%; /* Scale down button font size */
+    padding: 0.5em 1em; /* Reduce button padding */
+}
+
+/* Adjust the size of recent posts widget */
+.widget_recent_entries,
+.widget_recent_comments {
+    font-size: 90%; /* Scale down font size */
+}
+
+.widget_recent_entries li,
+.widget_recent_comments li {
+    padding: 0.5em 0; /* Reduce padding */
+}
+
+/* Adjust the size of the search widget */
+.widget_search input[type="search"],
+.widget_search input[type="submit"] {
+    font-size: 90%; /* Scale down input and button font size */
+    padding: 0.5em; /* Reduce padding */
+}
+
+/* Reduce the size of the search widget container */
+.widget_search {
+    margin: 0.5em 0; /* Reduce margin */
+}
+
+/* Adjust font size for widgets in the right sidebar */
+.sidebar-right .widget,
+.right-sidebar .widget,
+.sidebar .widget {
+    font-size: 90%; /* Adjust the size as needed */
+}
+
+.sidebar-right .widget li,
+.right-sidebar .widget li,
+.sidebar .widget li {
+    font-size: 90%; /* Adjust the size as needed */
+    padding: 0.5em 0; /* Reduce padding */
+}
+
+.sidebar-right .widget-title,
+.right-sidebar .widget-title,
+.sidebar .widget-title {
+    font-size: 90%; /* Adjust the widget title size */
+}
+
+.sidebar-right .widget p,
+.right-sidebar .widget p,
+.sidebar .widget p {
+    font-size: 90%; /* Adjust the paragraph font size within widgets */
+}
+
+.sidebar-right .widget a,
+.right-sidebar .widget a,
+.sidebar .widget a {
+    font-size: 90%; /* Adjust the font size of links within widgets */
+}
+
+/* Adjust all heading sizes */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 80%; /* Scale down all heading sizes by 20% */
+}
+
+/* Adjust paragraph font size */
+p {
+    font-size: 80%; /* Reduce paragraph font size */
+}
+
+/* You can set specific sizes for each heading if needed */
+h1 {
+    font-size: 1.5em; /* Adjust the size as needed */
+}
+
+h2 {
+    font-size: 1.25em; /* Adjust the size as needed */
+}
+
+h3 {
+    font-size: 1.1em; /* Adjust the size as needed */
+}
+
+h4 {
+    font-size: 2em; /* Adjust the size as needed */
+}
+
+h5 {
+    font-size: 0.875em; /* Adjust the size as needed */
+}
+
+h6 {
+    font-size: 0.75em; /* Adjust the size as needed */
+}
+
+/* Adjust the size of links */
+a {
+    font-size: 80%; /* Reduce link font size */
+}
+
+/* Adjust the size of the menu items */
+.nav-menu a, .menu-item a {
+    font-size: 80%; /* Reduce menu font size */
+}
+
+header {
+    font-size: 80%;
+}
+
+footer {
+    font-size: 80%;
+}
+
+.site-header {
+    font-size: 120%;
+}
+
+.site-footer {
+    font-size: 80%;
+}
+
+.content-area {
+    font-size: 80%;
+}
+
+.widget-area, .entry-content {
+    font-size: 80%;
+}
+
+.widget-area {
+    font-size: 120%;
+}
