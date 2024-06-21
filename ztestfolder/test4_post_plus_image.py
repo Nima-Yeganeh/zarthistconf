@@ -87,8 +87,8 @@ post_content += f'\n'
 post_content += f'\n'
 
 #Books
-post_content += "List of recommended books..."
-post_content += f'\n'
+# post_content += "List of recommended books..."
+# post_content += f'\n'
 file_path = zbooks
 try:
     with open(file_path, 'r') as file:

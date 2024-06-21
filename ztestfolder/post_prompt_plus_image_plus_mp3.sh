@@ -41,7 +41,7 @@ cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 echo "Books..."
 
 python3 -m pytgpt generate "Give me list of books for this article in bullet point in french and english" > zbookstempfile
-cat zbookstempfile | sed 's/\*\*//g' | sed 's/### //g' >> zbooks
+cat zbookstempfile | sed 's/\*\*//g' | sed 's/### //g' > zbooks
 
 
 # sleep 1000
