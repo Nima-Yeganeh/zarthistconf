@@ -38,7 +38,12 @@ python3 -m pytgpt generate "Give me list of wordpress keyword tags for this arti
 cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 # rm -f zwptagstempfile
 
-# sleep 1000
+echo "Books..."
+
+python3 -m pytgpt generate "Give me list of books for this article in bullet point in french and english" > zbooks
+
+
+sleep 1000
 
 echo "Downloading Image..."
 
@@ -81,6 +86,6 @@ rm -f zprompt_info_en
 rm -f zprompt_info_fr
 # rm -f zwptagstempfile
 # rm -f zwptags
-
+# rm -f zbooks
 echo "Done!"
 
