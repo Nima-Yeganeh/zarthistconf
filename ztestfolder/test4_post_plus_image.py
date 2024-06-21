@@ -84,11 +84,11 @@ except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 post.content += post_content
 post_content += f'\n'
-post_content += f'\n'
+post_content += f'\n\n'
 
 #Books
-# post_content += "List of recommended books..."
-# post_content += f'\n'
+post_content += "List of recommended books..."
+post_content += f'\n\n'
 file_path = zbooks
 try:
     with open(file_path, 'r') as file:
@@ -98,7 +98,7 @@ except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 post.content += post_content
 post_content += f'\n'
-post_content += f'\n'
+post_content += f'\n\n'
 
 
 #WP_TAGS

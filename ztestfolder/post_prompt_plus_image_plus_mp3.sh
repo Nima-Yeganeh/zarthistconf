@@ -85,9 +85,9 @@ done <<< "$file_list"
 
 rm -f zprompt_info_en
 rm -f zprompt_info_fr
-# rm -f zwptagstempfile
-# rm -f zwptags
-# rm -f zbookstempfile
-# rm -f zbooks
+rm -f zwptagstempfile
+rm -f zwptags
+rm -f zbookstempfile
+rm -f zbooks
 echo "Done!"
 
