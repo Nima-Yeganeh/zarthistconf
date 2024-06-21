@@ -87,21 +87,21 @@ post_content += f'\n'
 post_content += f'\n\n'
 
 #Books
-post_content += f'<br><br>'
-post_content += "List of recommended books..."
-post_content += f'\n\n'
-post_content += f'<br><br>'
-file_path = zbooks
-try:
-    with open(file_path, 'r') as file:
-        post_content = file.read()
-        post_content = post_content.strip()
-except FileNotFoundError:
-    print(f"Error: File '{file_path}' not found.")
-post.content += post_content
+# post_content += f'<br><br>'
+post_content += "List of recommended books:"
+#post_content += f'\n\n'
+# post_content += f'<br><br>'
+# file_path = zbooks
+# try:
+#     with open(file_path, 'r') as file:
+#         post_content = file.read()
+#         post_content = post_content.strip()
+# except FileNotFoundError:
+#     print(f"Error: File '{file_path}' not found.")
+# post.content += post_content
 post_content += f'\n'
 post_content += f'\n\n'
-post_content += f'<br><br>'
+# post_content += f'<br><br>'
 
 
 #WP_TAGS
