@@ -17,6 +17,7 @@ zwptags = sys.argv[7]
 url = sys.argv[8]
 username = sys.argv[9]
 password = sys.argv[10]
+htmlfile = sys.argv[11]
 
 client = Client(url, username, password)
 post = WordPressPost()
@@ -84,6 +85,17 @@ except FileNotFoundError:
 post.content += post_content
 post_content += f'\n'
 post_content += f'\n\n'
+
+# HTML file path
+html_file_path = htmlfile
+try:
+    with open(html_file_path, 'r') as html_file:
+        html_content = html_file.read().strip()
+except FileNotFoundError:
+    print(f"Error: File '{html_file_path}' not found.")
+else:
+    post_content += f'\n\n{html_content}\n\n'
+
 
 #WP_TAGS
 category = ["Histoire de l'art | History of Art"]

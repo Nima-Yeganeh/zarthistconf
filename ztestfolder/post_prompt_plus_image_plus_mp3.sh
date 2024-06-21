@@ -40,17 +40,17 @@ cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 
 echo "Google Images..."
 
+echo "" > googleimghtmlfile
 googleimgurl=$(bash googleimgv2.sh "$input")
-echo $googleimgurl
-googieimghtml='<!DOCTYPE html><html><body><p>Click the link to search <a href="'$googleimgurl'">Google Images</a></p><br></body></html>'
-echo $googieimghtml
+googleimghtml='<!DOCTYPE html><html><body><p>Click the link to search <a href="'$googleimgurl'">Google Images</a></p><br></body></html>'
+echo $googleimghtml > googleimghtmlfile
 
 # echo "Books..."
 
 # python3 -m pytgpt generate "Give me list of books for this article in bullet point in french and english" > zbookstempfile
 # cat zbookstempfile | sed 's/\*\*//g' | sed 's/### //g' > zbooks
 
-sleep 1000
+# sleep 1000
 
 zup1=$(cat zupinfo1 | head -n 1)
 zup2=$(cat zupinfo2 | head -n 1)
@@ -87,7 +87,7 @@ while IFS= read -r line; do
 
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile"
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2
@@ -99,5 +99,7 @@ rm -f zwptagstempfile
 rm -f zwptags
 rm -f zbookstempfile
 rm -f zbooks
+rm -f googleimghtmlfile
+
 echo "Done!"
 
