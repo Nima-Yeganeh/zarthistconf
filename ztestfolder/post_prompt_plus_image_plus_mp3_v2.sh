@@ -86,8 +86,8 @@ generate_and_post() {
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2
-    rm -f zprompt_info_en
-    rm -f zprompt_info_fr
+    # rm -f zprompt_info_en
+    # rm -f zprompt_info_fr
     rm -f zwptagstempfile
     rm -f zwptags
     rm -f zbookstempfile
