@@ -13,5 +13,6 @@ do
   echo "********************"
   echo "Generating..."
   echo $linetext
-  # bash post_prompt_plus_image_plus_mp3_v2.sh "$linetext"
+  bash post_prompt_plus_image_plus_mp3_v2.sh "$linetext"
+  echo "Next..."
 done < "zztopics.txt"
