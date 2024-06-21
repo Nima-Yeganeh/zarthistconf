@@ -5,6 +5,7 @@ while IFS= read -r line; do
 done < zztopics.txt
 
 generate_and_post() {
+    zsleep=20
     input=$1
     input2=$2
     input3=$3
@@ -13,6 +14,7 @@ generate_and_post() {
     echo "Processed input: $input | $zcat"
     echo "Generating..."
     # 1
+    sleep $zsleep
     echo "Info in English..."
     echo "" > zprompt.txt
     python3 -m pytgpt generate "$input2" > zprompt.txt
@@ -25,6 +27,7 @@ generate_and_post() {
     rm -f zprompt2.txt
     mv -f zprompt.txt zprompt_info_en
     # 2
+    sleep $zsleep
     echo "Translation to French..."
     echo "" > zprompt.txt
     python3 -m pytgpt generate "translate to french" > zprompt.txt
@@ -35,18 +38,21 @@ generate_and_post() {
     rm -f zprompt2.txt
     mv -f zprompt.txt zprompt_info_fr
     # 3
+    sleep $zsleep
     echo "Check Title..."
     ztitle_fr=$(python3 -m pytgpt generate "Give me a title for this in french")
     ztitle_en=$(python3 -m pytgpt generate "Translate this title to english")
     ztitle="$ztitle_fr | $ztitle_en"
     echo $ztitle
     # 4
+    sleep $zsleep
     echo "Wordpress Tags..."
     python3 -m pytgpt generate "Give me list of wordpress keyword tags for this in bullet point in french and english" > zwptagstempfile
     # cat zwordpresstest.file | grep -v -E 'Wordpress|WordPress|keywords'
     # cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
     cat zwptagstempfile | grep -v -E 'Wordpress|WordPress|keywords' | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
     # 5
+    sleep $zsleep
     echo "Google Images..."
     echo "" > googleimghtmlfile
     googleimgurl=$(bash googleimgv2.sh "$input")
@@ -60,6 +66,7 @@ generate_and_post() {
     zup2=$(cat zupinfo2 | head -n 1)
     zup3=$(cat zupinfo3 | head -n 1)
     # 6
+    sleep $zsleep
     echo "Downloading Image..."
     python3 imagedl.py "$input"
     echo "Checking JPG Files..."
@@ -73,16 +80,19 @@ generate_and_post() {
     convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
     rm -f "$filename"
     # 7
+    sleep $zsleep
     echo "MP3 in French..."
     mp3file=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
     mp3file="${mp3file}.mp3"
     python3 ztr2.py "zprompt_info_fr" "$mp3file" "fr"
     # 8
+    sleep $zsleep
     echo "MP3 in English..."
     mp3file2=$(date +%Y%m%d%H%M%S%N | md5sum | cut -d ' ' -f 1)
     mp3file2="${mp3file2}.mp3"
     python3 ztr2.py "zprompt_info_en" "$mp3file2" "en"
     # 9
+    sleep $zsleep
     echo "Wordpress Post..."
     python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile" "$zcat"
     rm -f $newfilename
