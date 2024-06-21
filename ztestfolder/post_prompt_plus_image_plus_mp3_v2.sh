@@ -46,7 +46,9 @@ for input in "${inputs[@]}"; do
     echo "Wordpress Tags..."
 
     python3 -m pytgpt generate "Give me list of wordpress keyword tags for this article in bullet point in french and english" > zwptagstempfile
-    cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
+    # cat zwordpresstest.file | grep -v -E 'Wordpress|WordPress|keywords'
+    # cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
+    cat zwptagstempfile | grep -v -E 'Wordpress|WordPress|keywords' | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 
     echo "Google Images..."
 
