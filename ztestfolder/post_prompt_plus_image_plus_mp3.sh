@@ -80,7 +80,7 @@ while IFS= read -r line; do
 
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "zup1" "up2" "up3"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3"
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2
