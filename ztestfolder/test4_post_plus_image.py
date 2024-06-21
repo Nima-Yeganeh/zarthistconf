@@ -14,7 +14,6 @@ ztxtfile = sys.argv[4]
 zmp3file2 = sys.argv[5]
 ztxtfile2 = sys.argv[6]
 zwptags = sys.argv[7]
-zbooks = sys.argv[8]
 
 url = 'http://arthist.ir/xmlrpc.php'
 username = 'adrian'
@@ -86,26 +85,8 @@ post.content += post_content
 post_content += f'\n'
 post_content += f'\n\n'
 
-#Books
-# post_content += f'<br><br>'
-post_content += "List of recommended books:"
-#post_content += f'\n\n'
-# post_content += f'<br><br>'
-# file_path = zbooks
-# try:
-#     with open(file_path, 'r') as file:
-#         post_content = file.read()
-#         post_content = post_content.strip()
-# except FileNotFoundError:
-#     print(f"Error: File '{file_path}' not found.")
-# post.content += post_content
-post_content += f'\n'
-post_content += f'\n\n'
-# post_content += f'<br><br>'
-
-
 #WP_TAGS
-category = ['ARTHIST']
+category = ["Histoire de l'art | History of Art"]
 tags = []
 with open(zwptags, 'r') as file:
     for line in file:

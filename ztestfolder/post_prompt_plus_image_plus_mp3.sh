@@ -38,11 +38,10 @@ python3 -m pytgpt generate "Give me list of wordpress keyword tags for this arti
 cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 # rm -f zwptagstempfile
 
-echo "Books..."
+# echo "Books..."
 
-python3 -m pytgpt generate "Give me list of books for this article in bullet point in french and english" > zbookstempfile
-cat zbookstempfile | sed 's/\*\*//g' | sed 's/### //g' > zbooks
-
+# python3 -m pytgpt generate "Give me list of books for this article in bullet point in french and english" > zbookstempfile
+# cat zbookstempfile | sed 's/\*\*//g' | sed 's/### //g' > zbooks
 
 # sleep 1000
 
@@ -77,7 +76,7 @@ while IFS= read -r line; do
 
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "zbooks"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags"
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2
