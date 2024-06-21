@@ -45,6 +45,10 @@ cat zwptagstempfile | grep - | sed 's/- //g' | sed 's/\*\*//g' > zwptags
 
 # sleep 1000
 
+zup1=$(cat zupinfo1 | head -n 1)
+zup2=$(cat zupinfo2 | head -n 1)
+zup3=$(cat zupinfo3 | head -n 1)
+
 echo "Downloading Image..."
 
 python3 imagedl.py "$input"
@@ -76,7 +80,7 @@ while IFS= read -r line; do
 
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "zup1" "up2" "up3"
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2

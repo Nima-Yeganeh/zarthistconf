@@ -14,9 +14,9 @@ filename = sys.argv[2]
 # print(f'Title: {title}')
 # print(f'Filename: {filename}')
 
-url = 'http://arthist.ir/xmlrpc.php'
-username = 'adrian'
-password = 'P@ssw0rd'
+url = ''
+username = ''
+password = ''
 client = Client(url, username, password)
 post = WordPressPost()
 post.title = title

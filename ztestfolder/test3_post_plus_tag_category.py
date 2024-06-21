@@ -4,9 +4,9 @@ from wordpress_xmlrpc.methods.posts import NewPost
 from wordpress_xmlrpc.methods.media import UploadFile
 import random
 
-url = 'http://arthist.ir/xmlrpc.php'
-username = 'adrian'
-password = 'P@ssw0rd'
+url = ''
+username = ''
+password = ''
 client = Client(url, username, password)
 post = WordPressPost()
 

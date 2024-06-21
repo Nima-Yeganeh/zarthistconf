@@ -14,10 +14,10 @@ ztxtfile = sys.argv[4]
 zmp3file2 = sys.argv[5]
 ztxtfile2 = sys.argv[6]
 zwptags = sys.argv[7]
+url = sys.argv[8]
+username = sys.argv[9]
+password = sys.argv[10]
 
-url = 'http://arthist.ir/xmlrpc.php'
-username = 'adrian'
-password = 'P@ssw0rd'
 client = Client(url, username, password)
 post = WordPressPost()
 post.title = title
