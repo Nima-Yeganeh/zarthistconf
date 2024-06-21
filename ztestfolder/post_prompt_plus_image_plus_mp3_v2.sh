@@ -99,7 +99,8 @@ for input in "${inputs[@]}"; do
 
     echo "Wordpress Post..."
 
-    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile"
+    zcat="Histoire de l'art | History of Art"
+    python3 test4_post_plus_image.py "$ztitle" "$newfilename" "$mp3file" "zprompt_info_fr" "$mp3file2" "zprompt_info_en" "zwptags" "$zup1" "$zup2" "$zup3" "googleimghtmlfile" "$zcat"
     rm -f $newfilename
     rm -f $mp3file
     rm -f $mp3file2
@@ -115,3 +116,4 @@ for input in "${inputs[@]}"; do
     echo "Done!"
     echo "Next..."
 done
+

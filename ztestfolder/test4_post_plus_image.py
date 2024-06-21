@@ -18,6 +18,7 @@ url = sys.argv[8]
 username = sys.argv[9]
 password = sys.argv[10]
 htmlfile = sys.argv[11]
+zcat = sys.argv[12]
 
 client = Client(url, username, password)
 post = WordPressPost()
@@ -99,7 +100,9 @@ post.content += f'\n'
 
 
 #WP_TAGS
-category = ["Histoire de l'art | History of Art"]
+zcat = sys.argv[12]
+category = [zcat]
+# category = ["Histoire de l'art | History of Art"]
 tags = []
 with open(zwptags, 'r') as file:
     for line in file:
