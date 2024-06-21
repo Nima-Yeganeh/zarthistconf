@@ -42,7 +42,7 @@ echo "Google Images..."
 
 googleimgurl=$(bash googleimgv2.sh "$input")
 echo $googleimgurl
-googieimghtml='<!DOCTYPE html><html><body><p>Click the link to search <a href="$googleimgurl">Google Images</a></p><br></body></html>'
+googieimghtml='<!DOCTYPE html><html><body><p>Click the link to search <a href="'$googleimgurl'">Google Images</a></p><br></body></html>'
 echo $googieimghtml
 
 # echo "Books..."
