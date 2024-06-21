@@ -108,12 +108,6 @@ post_it() {
     echo "Done!"
 }
 
-# Check if the input file exists
-if [[ ! -f "zztopics.txt" ]]; then
-  echo "File zztopics.txt not found!"
-  exit 1
-fi
-
 # Read the file line by line
 while IFS= read -r linetext
 do
@@ -121,7 +115,8 @@ do
   echo "Generating..."
   echo $linetext
   # Call the function and pass a string
-  post_it "$linetext"
+  # post_it "$linetext"
+  python3 ztest.py
   echo "Next..."
 done < "zztopics.txt"
 
