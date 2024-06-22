@@ -77,7 +77,8 @@ generate_and_post() {
     newfilename="${newfilename}${extension}"
     echo "New filename: $newfilename"
     echo "$filename"
-    convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
+    convert "$filename" -gravity North -chop 0x120 -gravity South -chop 0x120 $newfilename
+    # convert "$filename" -gravity North -chop 0x60 -gravity South -chop 0x60 $newfilename
     rm -f "$filename"
     # 7
     sleep $zsleep
