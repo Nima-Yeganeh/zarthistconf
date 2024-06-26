@@ -16,21 +16,10 @@ sudo docker ps -a
 sudo python3 -m pip install --upgrade pip
 sudo pip install --upgrade pip
 sudo pip install python-wordpress-xmlrpc
-# sudo pip install --upgrade --force-reinstall python-wordpress-xmlrpc
-# sudo pip install openai
-# sudo pip install openai==0.28
-# sudo pip install bs4
-
 sudo apt-get update -y
 sudo apt install python3 python3-pip -y
 sudo apt-get install imagemagick -y
-# convert --version
 sudo pip install --upgrade python-tgpt
-# pip install --upgrade "python-tgpt[cli]"
-# pip install  --upgrade "python-tgpt[all]"
-# sudo apt-get update -y
-# sudo apt-get install ffmpeg -y
-# sudo apt install python python3-pip -y
 sudo pip install gtts
 ls -lh /root/zarthistweb
 sudo chown -R www-data:www-data /root/zarthistweb/

@@ -108,6 +108,11 @@ generate_and_post() {
     rm -f googleimghtmlfile
     echo "Done!"
     echo "Next..."
+    echo "**********"
+    cd /root/zarthistconf
+    bash zbak.sh
+    cd /root/zarthistconf/ztestfolder
+    echo "**********"
 }
 
 for ztopic in "${inputs[@]}"; do
@@ -119,4 +124,5 @@ for ztopic in "${inputs[@]}"; do
     generate_and_post "$ztopic" "in english give a short story about or related to $ztopic" "Français à travers les histoires courtes et l'art | French Through Short Stories and Art"
 
 done
+
 
